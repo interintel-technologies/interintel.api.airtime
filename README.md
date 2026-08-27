@@ -112,7 +112,7 @@ plain HTTP requests are rejected.
 
 | Environment | Base URL (example) |
 | ----------- | ------------------ |
-| Production  | `https://nenasasa.com/api/v1/` |
+| Production  | `https://interintel.co/api/v1/` |
 | Staging     | Provided by your account manager (e.g. host-specific staging URL) |
 
 > Replace the base URL with the environment-specific host issued to you if you have a
@@ -148,7 +148,7 @@ provisioned:
 POST /o/token/
 ```
 
-Full URL example: `https://nenasasa.com/api/v1/o/token/`
+Full URL example: `https://interintel.co/api/v1/o/token/`
 
 **Request Headers**
 
@@ -278,7 +278,7 @@ institutional float when the debit step succeeds.
 POST /SEND AIRTIME/
 ```
 
-Full URL example: `https://nenasasa.com/api/v1/SEND AIRTIME/`
+Full URL example: `https://interintel.co/api/v1/SEND AIRTIME/`
 
 > The path segment is literally `SEND AIRTIME` (including the space). If your HTTP client
 > requires URL encoding, the space becomes `%20` (i.e. `.../api/v1/SEND%20AIRTIME/`).
@@ -308,7 +308,7 @@ Full URL example: `https://nenasasa.com/api/v1/SEND AIRTIME/`
   "chid": "13",
   "msisdn": "2547XXXXXXXX",
   "amount": "10.00",
-  "reference": "AIRTIME-2026-0001",
+  "reference": "2547XXXXXXXX",
   "institution_id": "765"
 }
 ```
@@ -343,7 +343,7 @@ Full URL example: `https://nenasasa.com/api/v1/SEND AIRTIME/`
     "get_gateway_profile": "Got Gateway Profile",
     "check_mno": "Safaricom subscriber verified successfully.",
     "debit_float": "Float Debited with: 10.00 balance: 99990.00",
-    "biller": "Async Biller Submitted: ok"
+    "biller": "biller Submitted"
   },
   "action_id": 133,
   "response_status": "09",
@@ -447,7 +447,7 @@ and recipient data.
 **Get an access token (password grant)**
 
 ```bash
-curl -X POST "https://nenasasa.com/api/v1/o/token/" \
+curl -X POST "https://interintel.co/api/v1/o/token/" \
   -H "Content-Type: application/json" \
   -d '{
     "client_id": "your_client_id",
@@ -460,7 +460,7 @@ curl -X POST "https://nenasasa.com/api/v1/o/token/" \
 **Get an access token (client credentials)**
 
 ```bash
-curl -X POST "https://nenasasa.com/api/v1/o/token/" \
+curl -X POST "https://interintel.co/api/v1/o/token/" \
   -H "Content-Type: application/json" \
   -d '{
     "client_id": "your_client_id",
@@ -472,7 +472,7 @@ curl -X POST "https://nenasasa.com/api/v1/o/token/" \
 **Send airtime**
 
 ```bash
-curl -X POST "https://nenasasa.com/api/v1/SEND%20AIRTIME/" \
+curl -X POST "https://interintel.co/api/v1/SEND%20AIRTIME/" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -d '{
@@ -489,7 +489,7 @@ curl -X POST "https://nenasasa.com/api/v1/SEND%20AIRTIME/" \
 ```python
 import requests
 
-BASE_URL = "https://nenasasa.com/api/v1"
+BASE_URL = "https://interintel.co/api/v1"
 
 
 def get_access_token():
@@ -542,7 +542,7 @@ if __name__ == "__main__":
 ### 9.3 Node.js (`fetch`)
 
 ```javascript
-const BASE_URL = "https://nenasasa.com/api/v1";
+const BASE_URL = "https://interintel.co/api/v1";
 
 async function getAccessToken() {
   const res = await fetch(`${BASE_URL}/o/token/`, {
@@ -597,7 +597,7 @@ async function sendAirtime(accessToken, { msisdn, amount, reference, institution
 
 ```php
 <?php
-$baseUrl = "https://nenasasa.com/api/v1";
+$baseUrl = "https://interintel.co/api/v1";
 
 function post_json($url, $payload, $headers = []) {
     $ch = curl_init($url);
