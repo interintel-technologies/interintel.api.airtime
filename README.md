@@ -304,12 +304,14 @@ Full URL example: `https://interintel.co/api/v1/SEND AIRTIME/`
 **Sample Request**
 
 ```json
+
 {
-  "chid": "13",
+  "chid": "2",
   "msisdn": "2547XXXXXXXX",
-  "amount": "10.00",
+  "amount": "5.00",
+  "float_amount": "5.00",
   "reference": "2547XXXXXXXX",
-  "institution_id": "765"
+  "institution_id": "33"
 }
 ```
 
@@ -338,18 +340,18 @@ Full URL example: `https://interintel.co/api/v1/SEND AIRTIME/`
 
 ```json
 {
-  "response": {
-    "validate_institution": "Institution Validated",
-    "get_gateway_profile": "Got Gateway Profile",
-    "check_mno": "Safaricom subscriber verified successfully.",
-    "debit_float": "Float Debited with: 10.00 balance: 99990.00",
-    "biller": "biller Submitted"
-  },
-  "action_id": 133,
-  "response_status": "09",
-  "overall_status": "09",
-  "last_response": "Async Biller Submitted: ok",
-  "response_message": "safaricom_mno"
+    "response": {
+        "validate_institution": "Institution Validated",
+        "get_profile": "Session Profile Captured",
+        "check_mno": "Check MNO OK",
+        "debit_float": "Float Debited with: 5.00 balance: 18576731.00",
+        "biller": "biller Submitted"
+    },
+    "action_id": 830,
+    "response_status": "00",
+    "overall_status": "00",
+    "last_response": "biller Submitted",
+    "response_message": null
 }
 ```
 
